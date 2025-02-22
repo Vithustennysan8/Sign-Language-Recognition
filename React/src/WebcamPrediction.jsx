@@ -13,10 +13,15 @@ const WebcamPrediction = () => {
     // Load TensorFlow.js model
     useEffect(() => {
         const loadModel = async () => {
-        const loadedModel = await tf.loadLayersModel("/tfjs_model/model.json");
-        setModel(loadedModel);
-        console.log("✅ Model loaded successfully!");
-        };
+            try {
+                const loadedModel = await tf.loadLayersModel("/tfjs_model/model.json");
+                setModel(loadedModel);
+                console.log("✅ Model loaded successfully!");
+            } catch (error) {
+                console.error("Error loading model:", error);
+                setPrediction("Error loading model");
+            }
+        };          
         loadModel();
     }, []);
 
@@ -32,38 +37,38 @@ const WebcamPrediction = () => {
     // Run Predictions
     const runPrediction = async () => {
         if (model && webcamRef.current) {
-        const video = webcamRef.current.video;
-        const holistic = new mpHolistic.Holistic({
-            locateFile: (file) =>
-            `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`,
-        });
+            const video = webcamRef.current.video;
+            const holistic = new mpHolistic.Holistic({
+                locateFile: (file) =>
+                `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`,
+            });
 
-        holistic.onResults(async (results) => {
-            const keypoints = await extractKeypoints(results);
-            const inputTensor = tf.tensor([keypoints]);
+            holistic.onResults(async (results) => {
+                const keypoints = await extractKeypoints(results);
+                const inputTensor = tf.tensor([keypoints]);
 
-            // Get prediction
-            const predictionIndex = model.predict(inputTensor).argMax(1).dataSync()[0];
-            setPrediction(actions[predictionIndex]);
-        });
+                // Get prediction
+                const predictionIndex = model.predict(inputTensor).argMax(1).dataSync()[0];
+                setPrediction(actions[predictionIndex]);
+            });
 
-        const processFrame = async () => {
-            if (!video.paused && !video.ended) {
-            await holistic.send({ image: video });
-            requestAnimationFrame(processFrame);
-            }
-        };
+            const processFrame = async () => {
+                if (!video.paused && !video.ended) {
+                await holistic.send({ image: video });
+                requestAnimationFrame(processFrame);
+                }
+            };
 
-        processFrame();
+            processFrame();
         }
     };
 
     return (
         <div>
-        <h2>Live Sign Language Recognition</h2>
-        <Webcam ref={webcamRef} style={{ width: "640px", height: "480px" }} />
-        <button onClick={runPrediction}>Start Recognition</button>
-        <h3>Prediction: {prediction}</h3>
+            <h2>Live Sign Language Recognition</h2>
+            <Webcam ref={webcamRef} style={{ width: "640px", height: "480px" }} />
+            <button onClick={runPrediction}>Start Recognition</button>
+            <h3>Prediction: {prediction}</h3>
         </div>
     );
 };
