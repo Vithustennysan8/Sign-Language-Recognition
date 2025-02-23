@@ -1,12 +1,14 @@
 import WebcamPrediction from './WebcamPrediction'
+import WebPrediction from './WebPrediction'
 
 function App() {
 
   return (
-    <>
-      <h1>Sign Language Detection</h1>
-      <WebcamPrediction/>
-    </>
+    <div style={{}}>
+      <h1 style={{textAlign: "center", fontWeight: "bold"}}>Sign Language Detection</h1>
+      {/* <WebcamPrediction/> */}
+      <WebPrediction/>
+    </div>
   )
 }
 
