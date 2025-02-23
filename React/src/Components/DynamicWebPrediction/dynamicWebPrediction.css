@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: #191919;
+}
+.dynamic-container{
+    width: 100%;
+    height: 100%;
+}
+.dynamic-container .heading{
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 0;
+    margin: 20px 0 40x;
+    color: white;
+}
+.contentDiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.webCamDiv{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 2px rgb(108, 108, 108));
+}
+.resultDiv{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        h3{
+            font-size: 1.8rem;
+            margin: 20px 0;
+        }
+        p{
+            font-size: 1.6rem;
+            margin: 20px 0;
+        }
+    }
+
+    button{
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

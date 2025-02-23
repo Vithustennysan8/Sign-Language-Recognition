@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
+import "./DynamicWebPrediction.css";
 
 const WebPrediction = () => {
   const webcamRef = useRef(null);
@@ -32,18 +33,29 @@ const WebPrediction = () => {
   }, [capturing]);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Sign Language Prediction</h2>
-      <Webcam
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        // mirrored={true}
-        style={{ width: "500px", height: "400px", borderRadius: "10px" }}
-      />
-      <h3>Prediction: {prediction}</h3>
-      <button onClick={() => setCapturing(!capturing)}>
-        {capturing ? "Stop Capturing" : "Start Capturing"}
-      </button>
+    <div className="dynamic-container">
+
+      <h2 className="heading">Sign Language Prediction</h2>
+
+      <div className="contentDiv">
+        <div className="webCamDiv">
+          <Webcam ref={webcamRef} screenshotFormat="image/jpeg" className="webcam"/>
+        </div>
+
+        <div className="resultDiv">
+          
+          <div>
+            <h3>Result:</h3>
+            <p className="result">{prediction}</p>
+          </div>
+
+          <button onClick={() => setCapturing(!capturing)}>
+            {capturing ? "Stop Capturing" : "Start Capturing"}
+          </button>
+        </div>
+        
+      </div>
+  
     </div>
   );
 };
