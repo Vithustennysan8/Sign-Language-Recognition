@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 model = tf.keras.models.load_model("D:\Study\Engineering\SignLanguageProject\Flask\lstm_sign_language_model_2")
 
 # Define sign language classes (must match training labels)
-actions = np.array(["Hello", "Yes", "No", "Please", "ThankYou"])
+actions = np.array(["Mother", "Father", "Love", "Baby", "Sorry", "You're welcome"])
 
 # Initialize MediaPipe for hand & body tracking
 mp_holistic = mp.solutions.holistic
