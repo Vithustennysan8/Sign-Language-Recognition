@@ -14,7 +14,7 @@ DynamicGuidePage.css
 
 /* Search Bar Styles */
 .searchBar {
-  width: 16rem;
+  width: 80rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   color: black;
@@ -80,6 +80,9 @@ DynamicGuidePage.css
 .BLText {
   text-align: center;
   margin-top: 1.5rem;
+  color: #8b4513;
+  font-weight: bold;
+  font-size: 1.5rem; /* 24px */
 }
 
 /* Search Container Styles */
@@ -107,56 +110,4 @@ video {
   width: 16rem;
   text-align: center;
   color: black;
-}
-
-/*gidance page */
-.guide-container {
-  /*background: linear-gradient(
-    to right,
-    #09d,
-    #257500
-  ); Purple-Blue gradient*/
-  /* background: conic-gradient(from 0deg, #ff058c, #ff058c, #ff0174, #dd7eb3); */
-  background: linear-gradient(to right, #8b4513, #0ac);
-
-  min-height: 100vh; /* Full height */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-  background: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-  padding: 1rem;
-  width: 16rem;
-  text-align: center;
-  color: black;
-}
-
-.guide-button {
-  padding: 12px 20px;
-  margin: 10px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: #fff;
-  color: #333;
-  transition: 0.3s ease-in-out;
-}
-
-.guide-button:hover {
-  background-color: #ddd;
-}
-
-.back-link {
-  font-size: 18px;
-  color: white;
-  text-decoration: underline;
-}
-
-.back-link:hover {
-  color: #f1f1f1;
 }

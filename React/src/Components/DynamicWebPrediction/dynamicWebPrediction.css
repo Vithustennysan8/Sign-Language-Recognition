@@ -14,6 +14,7 @@ body{
     font-size: 2.5rem;
     padding: 0;
     margin: 20px 0 40x;
+    /* color: white; */
 }
 .contentDiv{
     width: 100%;
@@ -36,6 +37,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* color: white; */
 
     div{
         display: flex;
