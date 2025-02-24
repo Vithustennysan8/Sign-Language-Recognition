@@ -1,9 +1,7 @@
-
-
 //last update
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Styles.css";
+import "./css/Styles.css";
 
 // const TextAlign = {
 //   background: "white",
@@ -135,8 +133,8 @@ function StaticGuidePage() {
 
       {/* Back Link */}
       <div className="BLText">
-        <Link to="/" className="BackLink">
-          ⬅ Back to Guide Selection
+        <Link to="/landing-page" className="BackLink">
+          ⬅ Back to LandPage
         </Link>
       </div>
     </div>
