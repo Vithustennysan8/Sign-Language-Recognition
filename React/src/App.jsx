@@ -2,9 +2,9 @@ import WebPrediction from './Components/DynamicWebPrediction/DynamicWebPredictio
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import DynamicGuidePage from "./DynamicGuidePage";
-import GuideSelectionPage from "./GuideSelectionPage";
 import StaticGuidePage from "./StaticGuidePage";
-import VideoGuidePage from "./VideoGuidePage"; // Import the VideoGuidePage
+import VideoGuidePage from "./VideoGuidance";
+import GuideSelectionPage from './GuidanceSelectionPage';
 
 function App() {
   return (
@@ -12,11 +12,11 @@ function App() {
       <div style={{ textAlign: "center", padding: "20px" }}>
         <h1>🖐️ Sign Language Detection</h1>
         <Routes>
-          <Route path="/" element={<WebPrediction />} />
-          <Route path="/guide-selection" element={<GuideSelectionPage />} />
+          <Route path="/webPrediction" element={<WebPrediction />} />
+          <Route path="/" element={<GuideSelectionPage/>} />
           <Route path="/static-guidance" element={<StaticGuidePage />} />
           <Route path="/dynamic-guidance" element={<DynamicGuidePage />} />
-          <Route path="/video-guidance" element={<VideoGuidePage />} /> {/* Add this route */}
+          <Route path="/video-guidance" element={<VideoGuidePage />} />
         </Routes>
       </div>
     </Router>

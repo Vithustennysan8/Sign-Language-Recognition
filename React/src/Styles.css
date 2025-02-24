@@ -52,7 +52,7 @@ DynamicGuidePage.css
   width: 12rem; /* 192px */
   height: 12rem; /* 192px */
   object-fit: cover;
-  border-radius: 50%; /* Makes the image circular */
+  border-radius: 8px; /* Makes the image circular */
   margin: 0 auto; /* Centers the image */
 }
 

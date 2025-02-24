@@ -46,7 +46,7 @@ import J from "./assets/J.jpg";
 import K from "./assets/K.jpg";
 import L from "./assets/L.jpg";
 import M from "./assets/M.jpg";
-import N from "./assets/N.jpg";
+import N from "./assets/N.png";
 import O from "./assets/O.jpg";
 import P from "./assets/P.jpg";
 import Q from "./assets/Q.jpg";
@@ -135,7 +135,7 @@ function StaticGuidePage() {
 
       {/* Back Link */}
       <div className="BLText">
-        <Link to="/guide-selection" className="BackLink">
+        <Link to="/" className="BackLink">
           ⬅ Back to Guide Selection
         </Link>
       </div>
