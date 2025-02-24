@@ -55,7 +55,7 @@ const LandingPage = () => {
 
       <div className="webcam-button">
         <Link to="/guide-selection" className="BackLink">
-          <button>visit Tutorial</button>
+          <button>Visit Tutorial</button>
         </Link>
       </div>
       

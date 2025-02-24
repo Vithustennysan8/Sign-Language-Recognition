@@ -64,7 +64,7 @@ button.disabled {
 } */
 
 .container {
-  background-color: black;
+  background-color: #f0f0f0;
 }
 
 .button-states {
@@ -108,7 +108,7 @@ h1 {
 .card.focus {
   background-color:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
   color: white;
-  outline: 2px solid #000;
+  /* outline: 2px solid #000; */
   border-width: 3px;
 }
 
@@ -133,4 +133,15 @@ h1 {
   background-color: #cccccc;
   cursor: not-allowed;
   color: #666;
+}
+.back-link{
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1rem;
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+}
+.back-link:hover{
+  color: #0056b3;
 }

@@ -9,15 +9,15 @@ import StaticGuidePage from "./StaticGuidePage";
 import StaticTrain from "./StaticTrain";
 import VideoGuidePage from "./VideoGuidance";
 import WebPrediction from "./WebPrediction";
+import DynamicWepPrediction from "./Components/DynamicWebPrediction/DynamicWebPrediction";
 
 function App() {
   return (
     <Router>
-      <div style={{ textAlign: "center", padding: "20px" }}>
-        {/* <h1>🖐️ Sign Language Detection</h1> */}
+      <div style={{ textAlign: "center"}}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/webPrediction" element={<WebPrediction />} />
+          <Route path="/webPrediction" element={<DynamicWepPrediction />} />
           <Route path="/guide-selection" element={<GuideSelectionPage />} />
           <Route path="/static-guidance" element={<StaticGuidePage />} />
           <Route path="/dynamic-guidance" element={<DynamicGuidePage />} />

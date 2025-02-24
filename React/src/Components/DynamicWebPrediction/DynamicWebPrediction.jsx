@@ -35,7 +35,7 @@ const WebPrediction = () => {
   return (
     <div className="dynamic-container">
 
-      <h2 className="heading">Sign Language Prediction</h2>
+      <h2 className="heading">Dynamic Gestures Prediction</h2>
 
       <div className="contentDiv">
         <div className="webCamDiv">

@@ -39,7 +39,7 @@ const ButtonStates = () => {
   return (
     <div className="container">
       <div className="button-states">
-        <h1>Button States</h1>
+        <h1>Guidence</h1>
         <div className="cards-container">
           {/* Card for Static */}
           <Link to="/static-guidance" className="card focus">

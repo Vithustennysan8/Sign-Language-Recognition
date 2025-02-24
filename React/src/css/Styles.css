@@ -2,7 +2,7 @@ DynamicGuidePage.css
 
 /* Container Styles */
 .container {
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
   /* background: linear-gradient(to right, #333333, #2bd10d); */
 
   /* background: conic-gradient(from 0deg, #ff7eb3, #ff758c, #ff6374, #ff7eb3); */
@@ -14,18 +14,14 @@ DynamicGuidePage.css
 
 /* Search Bar Styles */
 .searchBar {
-  width: 80rem;
-  padding: 0.5rem;
+  width: 50rem;
+  padding: 12px 10px;
   border-radius: 0.5rem;
   color: black;
+  font-size: 1rem;
   outline: none;
-  border: 2px solid #000;
-}
-
-.searchBar:focus {
-  outline: none;
-  border-color: #8b5cf6;
-  box-shadow: 0 0 0 2px rgba(139, 92, 22, 0.5);
+  /* border: 2px solid #000; */
+  text-align: center;
 }
 
 /* Text Description Styles */
