@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import "./Styles.css"; // Use the same CSS file for consistency
+import "./css/Styles.css"; 
+
 import Hello from "./video/hello.mp4";
 import yes from "./video/hello.mp4";
 import no from "./video/hello.mp4";
 import please from "./video/hello.mp4";
 import thankyou from "./video/hello.mp4";
 
-// Assuming your videos are stored in the `videos` folder
 const videos = [
   { name: "Hello", src: Hello },
   { name: "Yes", src: yes},
