@@ -7,7 +7,7 @@ import GuideSelectionPage from "./Components/GuidanceSelection/GuidanceSelection
 import LandingPage from "./Components/LandingPage/LandingPage";
 import StaticGuidePage from "./Components/StaticGuide/StaticGuidePage";
 import StaticTrain from "./Components/StaticTrain/StaticTrain";
-// import VideoGuidePage from "./VideoGuidance";
+import VideoGuidePage from "./Components/VideoGuidance/VideoGuidance";
 import WebPrediction from "./WebPrediction";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Route path="/guide-selection" element={<GuideSelectionPage />} />
           <Route path="/static-guidance" element={<StaticGuidePage />} />
           <Route path="/dynamic-guidance" element={<DynamicGuidePage />} />
-          {/* <Route path="/video-guidance" element={<VideoGuidePage />} /> */}
+          <Route path="/video-guidance" element={<VideoGuidePage />} />
           <Route path="/landing-page" element={<LandingPage />} />
           <Route path="/static-train" element={<StaticTrain />} />
           <Route path="/dynamic-train" element={<DynamicTrain />} />
