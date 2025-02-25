@@ -4,43 +4,46 @@ import axios from "axios";
 
 const WebPrediction = () => {
   const webcamRef = useRef(null);
-  const [prediction, setPrediction] = useState("Waiting...");
+  const [wordPrediction, setWordPrediction] = useState("Waiting...");
+  const [letterPrediction, setLetterPrediction] = useState("Waiting...");
   const [capturing, setCapturing] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const captureAndSendImage = async () => {
-    if (!capturing) return;
-    if (webcamRef.current) {
-      const imageSrc = webcamRef.current.getScreenshot();
+    if (!capturing || !webcamRef.current) return;
+    const imageSrc = webcamRef.current.getScreenshot();
+    setLoading(true);
 
-      try {
-        const response = await axios.post("http://127.0.0.1:5000/predict", {
-          image: imageSrc.split(",")[1], // Remove base64 prefix
-        });
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/predict", {
+        image: imageSrc.split(",")[1], // Remove base64 prefix
+      });
 
-        if (response.data.prediction) {
-          setPrediction(response.data.prediction);
-        }
-      } catch (error) {
-        console.error("Error:", error);
+      if (response.data.word_prediction) {
+        setWordPrediction(response.data.word_prediction);
       }
+      if (response.data.letter_prediction) {
+        setLetterPrediction(response.data.letter_prediction);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    const interval = setInterval(captureAndSendImage, 100); // Capture every 100ms (10 FPS)
+    const interval = setInterval(captureAndSendImage, 200); // Reduced request rate to avoid overload
     return () => clearInterval(interval);
   }, [capturing]);
 
   return (
     <div style={{ textAlign: "center" }}>
       <h2>Sign Language Prediction</h2>
-      <Webcam
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        // mirrored={true}
-        style={{ width: "500px", height: "400px", borderRadius: "10px" }}
-      />
-      <h3>Prediction: {prediction}</h3>
+      <Webcam ref={webcamRef} screenshotFormat="image/jpeg" style={{ width: "500px", height: "400px", borderRadius: "10px" }} />
+      <h3>Word Prediction: {wordPrediction}</h3>
+      <h3>Letter Prediction: {letterPrediction}</h3>
+      {loading && <p>Processing...</p>}
       <button onClick={() => setCapturing(!capturing)}>
         {capturing ? "Stop Capturing" : "Start Capturing"}
       </button>
