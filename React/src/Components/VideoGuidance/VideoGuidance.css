@@ -1,8 +1,6 @@
 
    .container {
-    padding: 1.5rem;
-   
-    background: linear-gradient(to right, #8b4513, #ffc);
+    /* background: linear-gradient(to right, #8b4513, #ffc); */
   
     min-height: 100vh;
     color: white;
@@ -36,15 +34,15 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     padding: 1rem;
-    width: 16rem;
+    /* width: 16rem; */
     text-align: center;
     color: black;
   }
   
   /* Image Styles */
   .Image {
-    width: 12rem; /* 192px */
-    height: 12rem; /* 192px */
+    /* width: 12rem; 192px */
+    /* height: 12rem; 192px */
     object-fit: cover;
     border-radius: 8px; /* Makes the image circular */
     margin: 0 auto; /* Centers the image */

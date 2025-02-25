@@ -2,11 +2,10 @@
 
 /* Container Styles */
 .container {
-    padding: 1.5rem;
     /* background: linear-gradient(to right, #333333, #2bd10d); */
   
     /* background: conic-gradient(from 0deg, #ff7eb3, #ff758c, #ff6374, #ff7eb3); */
-    background: linear-gradient(to right, #8b4513, #ffc);
+    /* background: linear-gradient(to right, #8b4513, #ffc); */
   
     min-height: 100vh;
     color: white;
@@ -14,11 +13,12 @@
   
   /* Search Bar Styles */
   .searchBar {
-    width: 80rem;
+    width: 50%;
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: black;
     outline: none;
+    text-align: center;
     border: 2px solid #000;
   }
   
