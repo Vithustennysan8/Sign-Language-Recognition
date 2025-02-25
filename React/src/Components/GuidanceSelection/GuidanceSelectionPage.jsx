@@ -32,7 +32,7 @@
 // export default GuideSelectionPage;
 
 //card
-import "./css/GuidanceSelectionPage.css";
+import "./GuidanceSelectionPage.css";
 import { Link } from "react-router-dom";
 
 const ButtonStates = () => {
