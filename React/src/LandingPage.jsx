@@ -33,23 +33,18 @@ const LandingPage = () => {
       <div className="cards-container">
         {/* Card for Dynamic Train */}
 
-        <Link to="/dynamic-train" className="card">
+        <Link to="/dynamicPrediction" className="card">
           <div className="card-content">
-            <h2>Dynamic Train</h2>
+            <h2>Dynamic Gesture</h2>
           </div>
         </Link>
 
         {/* Card for Static Train */}
 
-        <Link to="/static-train" className="card">
+        <Link to="/staticPrediction" className="card">
           <div className="card-content">
-            <h2>Static Train</h2>
+            <h2>Static Gesture</h2>
           </div>
-        </Link>
-      </div>
-      <div className="webcam-button">
-        <Link to="/webPrediction" className="BackLink">
-          <button>Turn on WEB CAM</button>
         </Link>
       </div>
 

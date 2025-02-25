@@ -7,30 +7,26 @@ const DynamicWebPrediction = () => {
   const webcamRef = useRef(null);
   const [prediction, setPrediction] = useState("Waiting...");
   const [capturing, setCapturing] = useState(true);
-  const [loading, setLoading] = useState(false);
 
   const captureAndSendImage = async () => {
     if (!capturing || !webcamRef.current) return;
     const imageSrc = webcamRef.current.getScreenshot();
-    setLoading(true);
 
     try {
       const response = await axios.post("http://127.0.0.1:5000/predict", {
         image: imageSrc.split(",")[1],
       });
 
-      if (response.data.word_prediction) {
-        setPrediction(response.data.word_prediction);
+      if (response.data) {
+        setPrediction(response.data);
       }
     } catch (error) {
       console.error("Error:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
   useEffect(() => {
-    const interval = setInterval(captureAndSendImage, 200);
+    const interval = setInterval(captureAndSendImage, 1000);
     return () => clearInterval(interval);
   }, [capturing]);
 
@@ -46,7 +42,6 @@ const DynamicWebPrediction = () => {
             <h3>Result:</h3>
             <p className="result">{prediction}</p>
           </div>
-          {loading && <p className="loading">Processing...</p>}
           <button onClick={() => setCapturing(!capturing)}>
             {capturing ? "Stop Capturing" : "Start Capturing"}
           </button>
