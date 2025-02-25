@@ -1,0 +1,95 @@
+/* DynamicGuidePage.css */
+
+/* Container Styles */
+.container {
+    padding: 1.5rem;
+    /* background: linear-gradient(to right, #333333, #2bd10d); */
+  
+    /* background: conic-gradient(from 0deg, #ff7eb3, #ff758c, #ff6374, #ff7eb3); */
+    background: linear-gradient(to right, #8b4513, #ffc);
+  
+    min-height: 100vh;
+    color: white;
+  }
+  
+  /* Search Bar Styles */
+  .searchBar {
+    width: 80rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: black;
+    outline: none;
+    border: 2px solid #000;
+  }
+  
+  .searchBar:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 22, 0.5);
+  }
+  
+  /* Text Description Styles */
+  .textDes {
+    font-size: 1.875rem; /* 30px */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Image Container Styles */
+  .imageContainer {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 16rem;
+    text-align: center;
+    color: black;
+  }
+  
+  /* Image Styles */
+  .Image {
+    width: 12rem; /* 192px */
+    height: 12rem; /* 192px */
+    object-fit: cover;
+    border-radius: 8px; /* Makes the image circular */
+    margin: 0 auto; /* Centers the image */
+  }
+  
+  /* Grid Container Styles */
+  .GridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  /* Back Link Styles */
+  .BackLink {
+    font-size: 1.125rem; /* 18px */
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .BackLink:hover {
+    color: #d1d5db; /* Light gray on hover */
+  }
+  
+  /* Back Link Text Container */
+  .BLText {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #8b4513;
+    font-weight: bold;
+    font-size: 1.5rem; /* 24px */
+  }
+  
+  /* Search Container Styles */
+  .SearchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+ 

@@ -1,7 +1,8 @@
 //last update
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./css/Styles.css";
+// import "../DynamicGuide/DynamicGuide.css";
+import "./DynamicGuide.css";
 
 import hello from "./images/hello.jpg";
 import no from "./images/no.jpg";
@@ -63,7 +64,7 @@ function DynamicGuidePage() {
 
       {/* Back Link */}
       <div className="BLText">
-        <Link to="/" className="BackLink">
+        <Link to="/guide-selection" className="BackLink">
           ⬅ Back to Guide Selection
         </Link>
       </div>

@@ -24,7 +24,7 @@
 
 // export default LandingPage;
 import { Link } from "react-router-dom";
-import "./css/LandingPage.css";
+import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
@@ -58,7 +58,6 @@ const LandingPage = () => {
           <button>visit Tutorial</button>
         </Link>
       </div>
-      
     </div>
   );
 };
