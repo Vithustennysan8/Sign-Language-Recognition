@@ -32,7 +32,7 @@
 // export default GuideSelectionPage;
 
 //card
-import "./css/GuidanceSelectionPage.css";
+import "./GuidanceSelectionPage.css";
 import { Link } from "react-router-dom";
 
 const ButtonStates = () => {
@@ -56,11 +56,11 @@ const ButtonStates = () => {
           </Link>
 
           {/* Card for Video */}
-          <Link to="/video-guidance" className="card focus">
+          {/* <Link to="/video-guidance" className="card focus">
             <div>
               <h2>VIDEOS</h2>
             </div>
-          </Link>
+          </Link> */}
         </div>
 
         {/* Back to Home Link */}

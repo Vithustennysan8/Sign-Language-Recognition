@@ -27,6 +27,10 @@ body{
     align-items: center;
     filter: drop-shadow(0 0 2px rgb(78, 78, 78));
 }
+video{
+    width: 100%;
+    height: 100%;
+}
 .resultDiv{
     width: 100%;
     display: flex;

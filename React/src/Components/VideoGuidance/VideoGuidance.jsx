@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
-import "./css/Styles.css"; 
+import "./VideoGuidance.css";
 
 import Hello from "./video/hello.mp4";
 import yes from "./video/hello.mp4";
 import no from "./video/hello.mp4";
 import please from "./video/hello.mp4";
-import thankyou from "./video/hello.mp4";
+// import ThankYou from "./video/hello.mp4";
+
 
 const videos = [
   { name: "Hello", src: Hello },
-  { name: "Yes", src: yes},
-  { name: "No", src: no},
-  { name: "Please", src: please},
-  { name: "Thank You", src: thankyou},
+  { name: "Yes", src: yes },
+  { name: "No", src: no },
+  { name: "Please", src: please },
+//   { name: "Thankyou", src: Thankyou },
+
 ];
 
 function VideoGuidePage() {
@@ -24,7 +26,7 @@ function VideoGuidePage() {
           <div key={index} className="imageContainer">
             {/* Use the <video> tag to display videos */}
             <video controls className="Image" autoPlay muted>
-              <source src={video.src} type="video/mp4"/>
+              <source src={video.src} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <h3 className="textDes">{video.name}</h3>
