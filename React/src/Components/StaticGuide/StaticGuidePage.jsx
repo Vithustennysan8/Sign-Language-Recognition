@@ -1,38 +1,6 @@
-//last update
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import "../StaticGuide/StaticGuide.css";
 import "./StaticGuide.css";
-
-
-// const TextAlign = {
-//   background: "white",
-//   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-//   borderRadius: "1rem",
-//   padding: "1rem",
-//   width: "16rem",
-//   textAlign: "center",
-//   color: "black",
-// };
-// const SearchBar = {
-
-//   focus:outline-none ,
-//   focus:ring-2 ,
-//   focus:ring-purple-600,
-// };
-// const textDes ={
-//   text-3xl font-bold text-center mb-D,
-// };
-// const BackLink ={text-lg text-white underline hover:text-gray-200};
-// const container ={p-6 bg-gradient-to-r from-purple-500 to-pink-500 min-h-screen text-white,};
-
-// const imageContainer ={bg-white shadow-lg rounded-2xl p-4 w-64 text-center text-black};
-// const BLText ={text-center mt-6,};
-// const Image ={w-48 h-48 object-cover rounded-full mx-auto,};
-// const GridContainer ={grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4,};
-// const SearchContainer ={flex justify-center items-center mt-6,};
-
-// Import images for each alphabet (A-Z)
 import A from "./assets/A.jpg";
 import B from "./assets/B.jpg";
 import C from "./assets/C.jpg";
@@ -46,7 +14,7 @@ import J from "./assets/J.jpg";
 import K from "./assets/K.jpg";
 import L from "./assets/L.jpg";
 import M from "./assets/M.jpg";
-import N from "./assets/N.png";
+import N from "./assets/N.jpg";
 import O from "./assets/O.jpg";
 import P from "./assets/P.jpg";
 import Q from "./assets/Q.jpg";

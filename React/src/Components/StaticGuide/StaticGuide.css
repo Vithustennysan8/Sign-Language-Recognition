@@ -19,7 +19,8 @@
     color: black;
     outline: none;
     text-align: center;
-    border: 2px solid #000;
+    border: 2px solid #909090;
+    margin-bottom: 30px;
   }
   
   .searchBar:focus {
@@ -41,16 +42,16 @@
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
-    padding: 1rem;
-    width: 16rem;
+    padding: 0;
+    /* width: 16rem; */
     text-align: center;
     color: black;
   }
   
   /* Image Styles */
   .Image {
-    width: 12rem; /* 192px */
-    height: 12rem; /* 192px */
+    width: 50%; /* 192px */
+    height: 50%; /* 192px */
     object-fit: cover;
     border-radius: 8px; /* Makes the image circular */
     margin: 0 auto; /* Centers the image */
@@ -59,7 +60,7 @@
   /* Grid Container Styles */
   .GridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 16px));
     gap: 1.5rem;
     justify-content: center;
     padding: 1rem;

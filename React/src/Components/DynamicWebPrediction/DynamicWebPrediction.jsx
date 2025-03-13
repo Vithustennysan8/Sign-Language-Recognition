@@ -26,7 +26,7 @@ const DynamicWebPrediction = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(captureAndSendImage, 1000);
+    const interval = setInterval(captureAndSendImage, 10);
     return () => clearInterval(interval);
   }, [capturing]);
 
