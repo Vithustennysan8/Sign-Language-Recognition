@@ -26,10 +26,10 @@ imgSize = 300
 lstm_model_path = "D:\Study\Engineering\SignLanguageProject\model\lstm_sign_language_model_2"
 lstm_model = tf.keras.models.load_model(lstm_model_path)
 
-model = tf.keras.models.load_model("C:/Users/vithustennysan/Desktop/Static_Sign/sign_language_model2.keras")
+model = tf.keras.models.load_model("D:\Study\Engineering\SignLanguageProject\model\Static_Sign\sign_language_model2.keras")
 
 # Define classes for word and letter recognition
-actions = np.array(["Hello", "Yes", "No", "Please", "ThankYou", "Mother", "Father", "Love", "Baby", "Sorry"])
+actions = np.array(["Hello", "Yes", "No", "Please", "ThankYou"])
 labels = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 # Initialize MediaPipe for hand & body tracking
@@ -41,25 +41,35 @@ sequence = []  # Store the last 30 frames
 def extract_keypoints(image):
     """Extract keypoints from an image using MediaPipe"""
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    results = holistic.process(image_rgb)
 
-    pose = np.array([[res.x, res.y, res.z] for res in results.pose_landmarks.landmark] if results.pose_landmarks else np.zeros((33,3)))
-    left_hand = np.array([[res.x, res.y, res.z] for res in results.left_hand_landmarks.landmark] if results.left_hand_landmarks else np.zeros((21, 3)))
-    right_hand = np.array([[res.x, res.y, res.z] for res in results.right_hand_landmarks.landmark] if results.right_hand_landmarks else np.zeros((21, 3)))
+    try:
+        results = holistic.process(image_rgb)
 
-    return np.concatenate([pose.flatten(), left_hand.flatten(), right_hand.flatten()])
+        if not results.pose_landmarks and not results.left_hand_landmarks and not results.right_hand_landmarks:
+            print("Warning: No landmarks detected. Returning empty array.")
+            return np.zeros((33*3 + 21*3 + 21*3,))  # Return zeros instead of getting stuck
+
+        pose = np.array([[res.x, res.y, res.z] for res in results.pose_landmarks.landmark] if results.pose_landmarks else np.zeros((33,3)))
+        left_hand = np.array([[res.x, res.y, res.z] for res in results.left_hand_landmarks.landmark] if results.left_hand_landmarks else np.zeros((21, 3)))
+        right_hand = np.array([[res.x, res.y, res.z] for res in results.right_hand_landmarks.landmark] if results.right_hand_landmarks else np.zeros((21, 3)))
+
+        return np.concatenate([pose.flatten(), left_hand.flatten(), right_hand.flatten()])
+
+    except Exception as e:
+        print(f"Error extracting keypoints: {e}")
+        return np.zeros((33*3 + 21*3 + 21*3,))  # Return empty array instead of hanging
+
 
 # Initialize MediaPipe Hands
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(static_image_mode=True, max_num_hands=1, min_detection_confidence=0.7)
 
 # Load label encoder to decode predictions
-with open('C:/Users/vithustennysan/Desktop/Static_Sign/label_encoder.pkl', 'rb') as f:
+with open('D:\Study\Engineering\SignLanguageProject\model\Static_Sign\label_encoder.pkl', 'rb') as f:
     label_encoder = pickle.load(f)
 
 @app.route("/")
 def index():
-    sequence = []
     return "Sign Language Prediction API is Running!"
 
 @app.route("/predict", methods=["POST"])
@@ -83,17 +93,18 @@ def predict():
         # Append keypoints to sequence
         sequence.append(keypoints)
         if len(sequence) > 30:
-            sequence.pop(0)
+            sequence = sequence[-30:]  # Keep only the last 30 frames
+
 
         # Word prediction (LSTM)
         if len(sequence) == 30:
             input_sequence = np.expand_dims(np.array(sequence), axis=0)
-            prediction = lstm_model.predict(input_sequence)
+            prediction = lstm_model.predict(input_sequence, verbose=0)
             word_prediction = actions[np.argmax(prediction)]
         else:
             word_prediction = "Collecting frames..."
 
-        return jsonify(word_prediction)
+        return jsonify({"prediction": word_prediction})
     
     except Exception as e:
         logging.error(f"Prediction error: {str(e)}")

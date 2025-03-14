@@ -18,7 +18,7 @@ const DynamicWebPrediction = () => {
       });
 
       if (response.data) {
-        setPrediction(response.data);
+        setPrediction(response.data.prediction);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -26,7 +26,7 @@ const DynamicWebPrediction = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(captureAndSendImage, 10);
+    const interval = setInterval(captureAndSendImage, 100);
     return () => clearInterval(interval);
   }, [capturing]);
 
